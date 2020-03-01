@@ -1,7 +1,6 @@
 import requests
 import datetime
 import bluetooth
-
 HARD_CODED_MAPPING = {
     "Bose SLIII": "wow"
 }
@@ -20,14 +19,15 @@ def update_location(location,update_time):
 
 def poll_for_devices():
     #if device found update location and send timestamp
-    nearby_devices = bluetooth.discover_devices(lookup_names=True, flush_cache=True, duration=5)
+    devices = bluetooth.find_service(name='Location Hub', uuid=None, address=None)
+    #nearby_devices = bluetooth.discover_devices(lookup_names=True, flush_cache=True, duration=20)
     #print"found %d devices" % len(nearby_devices)
     poll_time = datetime.datetime.now()
-    for addr, name in nearby_devices:
+    for name in devices.description:
         location = HARD_CODED_MAPPING.get(name)
         if location is not None:
             update_location(location,poll_time)
-        print(" %s - %s - %s" % (addr, name, poll_time))
+        print("%s - %s" % (name, poll_time))
 
     return poll_time
 
