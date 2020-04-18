@@ -7,8 +7,12 @@ import time
 import bluetooth
 
 sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+
+sock.bind(("", 0))
+sock.listen(0)
+
 bluetooth.advertise_service(sock, 'Location Hub', description='garage')
 
-while True:
-    pass
+# while True:
+#     time.sleep(1)
 
