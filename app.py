@@ -9,15 +9,21 @@ app = Flask(__name__)
 locations_db = {}
 
 #testing dipalying name 
-doctorsName = {}
+doctorsName = []
+nm = ''
 
 #this is tue home page and calls index.html
 @app.route("/")
 def hello():
     return render_template('index.html')
 
+@app.route("/helloDoc", methods=['GET', 'POST'])
+def helloDoc():
+    if request.method == 'POST':
+        nm = request.form['doctorName']
+        
+    return render_template('index.html', nm=nm)
 
-  
 @app.route('/update-location',methods=["POST"])
 def update_location():
     error = ''

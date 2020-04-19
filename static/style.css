@@ -72,10 +72,13 @@
     text-align: center;
     
     background-color: #D3D3D3;
-    border: 2px solid red;
     padding: 10px;
     border-radius: 15px;
     
     opacity: 0.6;
 
+}
+#displayName{
+  text-align: center;
+  font-size: medium;
 }

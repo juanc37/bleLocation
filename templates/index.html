@@ -7,14 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="static/style.css">
     <!-- import javascript file-->
-    <script src="/static/script.js"></script>
-    <!-- Your web-app is https, so your scripts need to be too 
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    -->
+    <script src="static/script.js"></script>
+
   </head>  
   <body>
     <div id = "centerE"> 
@@ -26,16 +22,17 @@
   
       <main>
         <p class="bold">Sign in,</p>
-        <form action ="#" >
-          <input type="text" maxlength="100" name="doctor_id" placeholder="Matthew Kenan">
-          <button type="submit">Submit</button>
+
+        <form action="/helloDoc" method="post">
+          <input id="doctorNameInput" type="text" maxlength="100" name="doctorName" required placeholder="Matthew Kenan">
+          <button id="submit" type="submit" onclick="addDoctor()" >Submit</button>
         </form>
         
       </main>
   
     </div>
 
-
+    <p id="displayName"> Name: {{nm}}</p>
 
 
   </body>
