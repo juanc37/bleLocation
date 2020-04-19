@@ -23,8 +23,8 @@
       <main>
         <p class="bold">Sign in,</p>
 
-        <form action="/helloDoc" method="post">
-          <input id="doctorNameInput" type="text" maxlength="100" name="doctorName" required placeholder="Matthew Kenan">
+        <form action="/locate" method="post">
+          <input id="doctorNameInput" type="text" maxlength="100" name="doctor_id" required placeholder="Matthew Kenan">
           <button id="submit" type="submit" onclick="addDoctor()" >Submit</button>
         </form>
         
@@ -32,7 +32,7 @@
   
     </div>
 
-    <p id="displayName"> Name: {{nm}}</p>
+    <p id="displayName"> Name: {{doctorName}} <br> Location:{{doctor}}</p>
 
 
   </body>

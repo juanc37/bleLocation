@@ -9,8 +9,8 @@ app = Flask(__name__)
 locations_db = {}
 
 #testing dipalying name 
-doctorsName = []
-nm = ''
+doctorName = ''
+doctor = ''
 
 #this is tue home page and calls index.html
 @app.route("/")
@@ -20,9 +20,9 @@ def hello():
 @app.route("/helloDoc", methods=['GET', 'POST'])
 def helloDoc():
     if request.method == 'POST':
-        nm = request.form['doctorName']
+        doctorName= request.form['doctor_id']
         
-    return render_template('index.html', nm=nm)
+    return render_template('index.html', doctorName=doctorName)
 
 @app.route('/update-location',methods=["POST"])
 def update_location():
@@ -70,6 +70,7 @@ def locate():
     error = ''
     try:
         if request.method == "POST":
+            doctorName= request.form['doctor_id']
             doctor = locations_db.get(request.form['doctor_id'])
         else:
             raise Exception("Invalid Request")
@@ -77,8 +78,8 @@ def locate():
         print(e)
         error = e
     if doctor is None:
-        return "This doctor is not able to be located currently"
-    return doctor
+        return render_template('index.html', doctorName=doctorName, doctor= "This doctor is not able to be located currently")
+    return render_template('index.html', doctorName=doctorName, doctor= doctor)
 
 if __name__ == "__main__":
     app.run()

@@ -1,4 +1,6 @@
-//currently dispalys name , but will need to be changed
+/* Javascript is not needed at this time */
+
+//currently dispalys name , but will need to be changed 
 
 //unction init(){
   //document.getElementById('submit').addEventListener('click',addDoctor);
