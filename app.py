@@ -12,17 +12,10 @@ locations_db = {}
 doctorName = ''
 doctor = ''
 
-#this is tue home page and calls index.html
+#this is the home page and calls index.html
 @app.route("/")
 def hello():
     return render_template('index.html')
-
-@app.route("/helloDoc", methods=['GET', 'POST'])
-def helloDoc():
-    if request.method == 'POST':
-        doctorName= request.form['doctor_id']
-        
-    return render_template('index.html', doctorName=doctorName)
 
 @app.route('/update-location',methods=["POST"])
 def update_location():
