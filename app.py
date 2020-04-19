@@ -1,9 +1,23 @@
-from flask import Flask
-from flask import request
+import os
+import datetime 
+#request for usage of POST and GET request. Needed to POST data from HTML form
+#render_template allows to redirect to html in flask instead of writing it in .py file
+from flask import Flask, request, render_template, jsonify
+
 app = Flask(__name__)
-import datetime
 
 locations_db = {}
+
+#testing dipalying name 
+doctorsName = {}
+
+#this is tue home page and calls index.html
+@app.route("/")
+def hello():
+    return render_template('index.html')
+
+
+  
 @app.route('/update-location',methods=["POST"])
 def update_location():
     error = ''
@@ -60,6 +74,6 @@ def locate():
         return "This doctor is not able to be located currently"
     return doctor
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
+    
