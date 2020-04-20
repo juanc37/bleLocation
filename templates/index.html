@@ -21,18 +21,18 @@
       </header>
   
       <main>
-        <p class="bold">Sign in,</p>
+        <p class="bold">Sign in: </p>
 
         <form action="/locate" method="post">
-          <input id="doctorNameInput" type="text" maxlength="100" name="doctor_id" required placeholder="Matthew Kenan">
+          <input id="doctorNameInput" type="text" maxlength="100" name="doctor_id" required placeholder="First and Last Name">
           <button id="submit" type="submit" onclick="addDoctor()" >Submit</button>
         </form>
-        
+        <p id="displayName"> Name: {{doctorName}} <br> Location: {{location}}</p>
       </main>
   
     </div>
 
-    <p id="displayName"> Name: {{doctorName}} <br> Location:{{doctor}}</p>
+    <!--<p id="displayName"> Name: {{doctorName}} <br> Location: {{location}}</p> -->
 
 
   </body>

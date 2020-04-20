@@ -6,11 +6,19 @@ from flask import Flask, request, render_template, jsonify
 
 app = Flask(__name__)
 
-locations_db = {}
+#hardcoded database; change later when bluetooth is connected
+locations_db = {
+    "Cesar Lopez" : "Love Library",
+   "Juan Candelaria Claborne" : "Garage",
+   "Sami Quiroz" : "GMCS425",
+   "Matthew Rose": "Eurika",
+   "Daniel Valoria" : "Music Room",
+   "Jasmine Nelson" : "Seattle"
+}
 
 #testing dipalying name 
 doctorName = ''
-doctor = ''
+location = ''
 
 #this is the home page and calls index.html
 @app.route("/")
@@ -64,15 +72,15 @@ def locate():
     try:
         if request.method == "POST":
             doctorName= request.form['doctor_id']
-            doctor = locations_db.get(request.form['doctor_id'])
+            location = locations_db.get(doctorName)
         else:
             raise Exception("Invalid Request")
     except Exception as e:
         print(e)
         error = e
-    if doctor is None:
-        return render_template('index.html', doctorName=doctorName, doctor= "This doctor is not able to be located currently")
-    return render_template('index.html', doctorName=doctorName, doctor= doctor)
+    if location is None:
+        return render_template('index.html', doctorName=doctorName, location= "This doctor is not able to be located currently")
+    return render_template('index.html', doctorName=doctorName, location= location)
 
 if __name__ == "__main__":
     app.run()
