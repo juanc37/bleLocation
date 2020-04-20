@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Find Doctors</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="static/style.css">
+    <!-- import javascript file-->
+    <script src="static/script.js"></script>
+
+  </head>  
+  <body>
+    <div id = "centerE"> 
+    <header>
+        <h1>
+          Doctors
+        </h1>
+      </header>
+  
+      <main>
+        <p class="bold">Sign in,</p>
+
+        <form action="/locate" method="post">
+          <input id="doctorNameInput" type="text" maxlength="100" name="doctor_id" required placeholder="Matthew Kenan">
+          <button id="submit" type="submit" onclick="addDoctor()" >Submit</button>
+        </form>
+        
+      </main>
+  
+    </div>
+
+    <p id="displayName"> Name: {{doctorName}} <br> Location:{{doctor}}</p>
+
+
+  </body>
+</html>
+
