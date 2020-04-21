@@ -11,7 +11,7 @@ locations_db = {
     "Cesar Lopez" : "Love Library",
    "Juan Candelaria Claborne" : "Garage",
    "Sami Quiroz" : "GMCS425",
-   "Matthew Rose": "Eurika",
+   "Matthew Rose": "Eureka",
    "Daniel Valoria" : "Music Room",
    "Jasmine Nelson" : "Seattle"
 }
@@ -79,8 +79,8 @@ def locate():
         print(e)
         error = e
     if location is None:
-        return render_template('index.html', doctorName=doctorName, location= "This doctor is not able to be located currently")
-    return render_template('index.html', doctorName=doctorName, location= location)
+        return render_template('locate.html', doctorName=doctorName, location= "This doctor is not able to be located currently")
+    return render_template('locate.html', doctorName=doctorName, location= location)
 
 if __name__ == "__main__":
     app.run()
